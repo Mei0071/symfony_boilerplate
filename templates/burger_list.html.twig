@@ -1,6 +1,22 @@
 {% extends 'base.html.twig' %}
-{% block title%}{{parent()}}Liste des burger - CRUDcroustillant{% endblock %}
-{% block content %}
-    <h1>Liste des burgers</h1>
+ 
+{%block content %}
+
+    <main>
+        <h2>Liste des burgers</h2>
+        <p>Nos burgers sont préparés avec soin et passion.</p>
+
+          <ul>
+            {% for id, burger in burgers %}
+                <li>
+                    {{ burger.name }}
+                </li>
+            {% else %}
+                <li>Aucun burger trouvé.</li>
+            {% endfor %}
+        </ul>
+    </main>
+ 
 {% endblock %}
-        
+
+
