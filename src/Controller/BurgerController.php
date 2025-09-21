@@ -6,28 +6,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+#[Route('/burgers', name: '')]
+
 class BurgerController extends AbstractController
 {
-    #[Route('/burgers', name: 'burger_list')]
+    #[Route('/', name: 'burger_list')]
     public function liste(): Response
     {
         $burgers = [
-            1 => ['name' => 'Burger savoyard','Description'=>'Le savoyard'],
-            2 => ['name' => 'Burger normal','Description'=>'Le normal'],
-            3 => ['name' => 'Burger original','Description'=>'L\'original']
+            1 => ['name' => 'Burger savoyard','description'=>'Le savoyard'],
+            2 => ['name' => 'Burger normal','description'=>'Le normal'],
+            3 => ['name' => 'Burger original','description'=>'L\'original']
         ];
+
 
          return $this->render('burger_list.html.twig', [
             'burgers' => $burgers,
         ]);
     }
 
-    #[Route('/burgers/{id}', name: 'burger_show')]
+    #[Route('/{id}', name: 'burger_show')]
     public function show(int $id):Response{
         $burgers = [
-            1 => ['name' => 'Burger savoyard','Description'=>'Le savoyard'],
-            2 => ['name' => 'Burger normal','Description'=>'Le normal'],
-            3 => ['name' => 'Burger original','Description'=>'L\'original']
+            1 => ['name' => 'Burger savoyard','description'=>'Le savoyard'],
+            2 => ['name' => 'Burger normal','description'=>'Le normal'],
+            3 => ['name' => 'Burger original','description'=>'L\'original']
         ];
 
         $burger = $burgers[$id] ?? null;

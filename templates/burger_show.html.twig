@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}
     {% if burger %}
-        Détails du Burger - {{ burger.name }}
+        Détails du {{ burger.name }}
     {% else %}
         Burger non trouvé
     {% endif %}
@@ -11,7 +12,7 @@
      {% if burger %}
         <h1>Détails du Burger n°{{ id }}</h1>
         <h2>{{ burger.name }}</h2>
-        <p>{{ burger.Description }}</p> 
+        <p>{{ burger.description }}</p>
     {% else %}
         <h1>Burger non trouvé</h1>
     {% endif %}

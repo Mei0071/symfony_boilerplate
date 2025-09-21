@@ -1,4 +1,4 @@
-# Symfony 7.3 Boilerplate 
+x# Symfony 7.3 Boilerplate 
 
 Attention : Il vous faut PHP 8.2 pour faire fonctionner ce projet.
 
