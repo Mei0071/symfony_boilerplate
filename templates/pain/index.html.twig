@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des pains{% endblock %}
+
+{% block content %}
+    <main>
+        <h1>Liste des pains disponibles</h1>
+
+        <ul>
+            {% for id, pain in pains %}
+                <li>
+                    {{ pain.name }}
+                </li>
+            {% else %}
+                <li>Aucun pain trouvé.</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+{% endblock %}
