@@ -11,7 +11,9 @@
           <ul>
             {% for id, burger in burgers %}
                 <li>
-                    {{ burger.name }}
+                    <a href="{{ path('burger_show', { id: burger.id }) }}">
+                        {{ burger.name }}
+                    </a>
                 </li>
             {% else %}
                 <li>Aucun burger trouvé.</li>
