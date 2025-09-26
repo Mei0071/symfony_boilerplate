@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Top Burger{% endblock %}
+{% block title %}Burger les plus chers{% endblock %}
 
 {%block content %}
 
     <main>
+        <h2>Burgers les plus chers</h2>
         <ul>
             {% for id, burger in burgers %}
                 <li>
-                        {{ burger.name }}
+                    {{ burger.name }} : {{ burger.price }} euros
                 </li>
             {% else %}
                 <li>Aucun burger trouvé.</li>

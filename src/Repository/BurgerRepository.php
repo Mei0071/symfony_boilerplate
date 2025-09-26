@@ -32,4 +32,11 @@ class BurgerRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /*public function findBurgersWithIngredient(string $ingredient): array
+    {
+        $qb = $this->createQueryBuilder('b')
+
+        return $qb->getQuery()->getResult();
+    }*/
 }

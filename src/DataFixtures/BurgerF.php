@@ -30,6 +30,7 @@ class BurgerF extends Fixture
             "5"
         ];
 
+
         foreach ($nomsBurgers as $key => $nomBurgers) {
             $burger = new Burger();
             $burger->setName($nomBurgers);

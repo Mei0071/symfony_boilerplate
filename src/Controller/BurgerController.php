@@ -51,13 +51,22 @@ class BurgerController extends AbstractController
         return new Response("Nouveau burger crée avec succès");
     }
 
-    #[Route('/topBurger', name: 'top_burger')]
+    #[Route('/expensiveBurger', name: 'burger_expensive')]
     public function topBurgers(BurgerRepository $burgerRepository): Response
     {
-        $burgers = $burgerRepository->findTopXBurgers(2);
-        return $this->render('topBurgerPrice.html.twig', [
+        $burgers = $burgerRepository->findTopXBurgers(3);
+        return $this->render('expensiveBurger.html.twig', [
             'burgers' => $burgers,
         ]);
     }
+
+    /*#[Route('/burgerWithIngredient', name: 'burger_withIngredient')]
+    public function burgerWithIngredient(BurgerRepository $burgerRepository): Response
+    {
+        $burgers = $burgerRepository->findBurgersWithIngredient("oignon");
+        return $this->render('expensiveBurger.html.twig', [
+            'burgers' => $burgers,
+        ]);
+    }*/
 
 }

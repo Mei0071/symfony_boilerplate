@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BurgerRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use JetBrains\PhpStorm\ObjectShape;
 
@@ -34,6 +35,7 @@ class Burger
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
+
 
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'burger')]
     public function getId(): ?int
@@ -76,5 +78,8 @@ class Burger
 
         return $this;
     }
+
+
+
 
 }
