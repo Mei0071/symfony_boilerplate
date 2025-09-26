@@ -32,6 +32,9 @@ class Burger
     #[ORM\OneToOne]
     private ?Image $image;
 
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
+
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'burger')]
     public function getId(): ?int
     {
@@ -58,6 +61,18 @@ class Burger
     public function setPrice(string $price): static
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
