@@ -16,28 +16,19 @@ class BurgerRepository extends ServiceEntityRepository
         parent::__construct($registry, Burger::class);
     }
 
-//    /**
-//     * @return Burger[] Returns an array of Burger objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getAllBurgers(){
+        return $this->findAll();
+    }
 
-//    public function findOneBySomeField($value): ?Burger
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function getBurgerById(int $id){
+        return $this->find($id);
+    }
+
+    public function findBurgerWithIngredient(string $ingredient){
+        $qb = $this->createQueryBuilder('b')
+            ->where('b.ingredient = :ingredient')
+            ->setParameter('ingredient', $ingredient);
+
+            return $qb->getQuery()->getResult();
+    }
 }

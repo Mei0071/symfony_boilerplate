@@ -13,21 +13,21 @@ use App\Entity\Burger;
 
 class BurgerController extends AbstractController
 {
-    #[Route('/', name: 'burger_list')]
-    public function liste(BurgerRepository $burgerRepository): Response
+    #[Route('/', name: 'burger_index')]
+    public function index(BurgerRepository $burgerRepository): Response
     {
 
-        $burgers = $burgerRepository->findAll();
+        $burgers = $burgerRepository->getAllBurgers();
 
         return $this->render('burger_list.html.twig', [
             'burgers' => $burgers,
         ]);
     }
 
-    #[Route('/data/{id}', name: 'burger_show')]
+    #[Route('/detail/{id}', name: 'burger_show')]
     public function show(BurgerRepository $burgerRepository, $id):Response{
 
-        $burger = $burgerRepository->find($id);
+        $burger = $burgerRepository->getBurgerById($id);
 
         return $this->render('burger_show.html.twig',[
             'id'=>$id,
@@ -44,11 +44,17 @@ class BurgerController extends AbstractController
         $burger->setPrice(5.20);
         $burger->setDescription("nouveau burger");
 
-        //Persisteret sauvegarder le nouveau burger
+        //Persister et sauvegarder le nouveau burger
         $entityManager->persist($burger);
         $entityManager->flush();
 
         return new Response("Nouveau burger crée avec succès");
+    }
+
+    #[Route('/burgerWithIngredient', name: 'burger_ingredient')]
+    public function BurgerIngredient(BurgerRepository $burgerRepository): Response
+    {
+        $burgersOignon=$burgerRepository->findBurgerWithIngredient("oignon");
     }
 
 }
