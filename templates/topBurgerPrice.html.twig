@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Top Burger{% endblock %}
+
+{%block content %}
+
+    <main>
+        <ul>
+            {% for id, burger in burgers %}
+                <li>
+                        {{ burger.name }}
+                </li>
+            {% else %}
+                <li>Aucun burger trouvé.</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+{% endblock %}

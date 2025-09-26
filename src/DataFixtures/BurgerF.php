@@ -24,10 +24,16 @@ class BurgerF extends Fixture
             'le burger normal'
         ];
 
+        $priceBurgers = [
+            "3",
+            "4",
+            "5"
+        ];
+
         foreach ($nomsBurgers as $key => $nomBurgers) {
             $burger = new Burger();
             $burger->setName($nomBurgers);
-            $burger->setPrice("3");
+            $burger->setPrice($priceBurgers[$key]);
             $burger->setDescription($descriptionsBurgers[$key]);
             $manager->persist($burger);
             $this->addReference(self::BURGER_REFERENCE . '_' . $key, $burger);
